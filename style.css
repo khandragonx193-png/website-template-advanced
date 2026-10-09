@@ -1,0 +1,499 @@
+
+/* =========================
+   1. RESET VÀ THIẾT LẬP CHUNG
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 85px;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #202938;
+    background: #f7f9fc;
+    line-height: 1.7;
+}
+
+a {
+    text-decoration: none;
+}
+
+section {
+    scroll-margin-top: 80px;
+}
+
+/* =========================
+   2. HEADER VÀ ẢNH NỀN
+========================= */
+.header {
+    min-height: 470px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 24px 75px;
+    overflow: hidden;
+    color: white;
+    text-align: center;
+
+    background:
+        linear-gradient(135deg, #10233e, #176b76 55%, #38b9a1);
+}
+
+/* Hiệu ứng nền trang trí mờ */
+.header::before {
+    content: "";
+    position: absolute;
+    inset: -20px;
+    background-image: url("../images/banner.jpg");
+    background-size: cover;
+    background-position: center;
+    filter: blur(7px);
+    opacity: 0.65;
+    z-index: 0;
+}
+
+/* Lớp phủ giúp chữ dễ đọc */
+.header::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        120deg,
+        rgba(8, 20, 40, 0.85),
+        rgba(10, 70, 85, 0.65)
+    );
+    z-index: 1;
+}
+
+.header-content {
+    position: relative;
+    z-index: 2;
+    max-width: 850px;
+}
+
+.tagline,
+.section-label {
+    display: inline-block;
+    color: #18b99b;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.header .tagline {
+    color: #7cebd6;
+}
+
+.header h1 {
+    font-size: clamp(36px, 6vw, 62px);
+    line-height: 1.2;
+    margin-bottom: 18px;
+    letter-spacing: -1.5px;
+}
+
+.header p {
+    font-size: clamp(16px, 2vw, 20px);
+    color: #e4edf5;
+    margin-bottom: 32px;
+}
+
+/* Nút bấm */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 13px 23px;
+    border-radius: 8px;
+    background: #18b99b;
+    color: white;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.btn:hover {
+    background: #11977e;
+    transform: translateY(-3px);
+}
+
+.btn span,
+.card-link span {
+    font-size: 20px;
+    transition: transform 0.3s;
+}
+
+.btn:hover span,
+.card-link:hover span {
+    transform: translateX(4px);
+}
+
+/* Hình trang trí */
+.header-decoration {
+    position: absolute;
+    z-index: 2;
+    width: 240px;
+    height: 240px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 50%;
+    right: -75px;
+    bottom: -130px;
+    box-shadow: 0 0 0 35px rgba(255, 255, 255, 0.04),
+                0 0 0 70px rgba(255, 255, 255, 0.03);
+}
+
+/* =========================
+   3. THANH ĐIỀU HƯỚNG CỐ ĐỊNH
+========================= */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    min-height: 68px;
+    padding: 12px max(5%, calc((100% - 1200px) / 2));
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 3px 18px rgba(18, 38, 63, 0.08);
+}
+
+.logo {
+    color: #172b46;
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    white-space: nowrap;
+}
+
+.logo span {
+    color: #18b99b;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    list-style: none;
+}
+
+.nav-links a {
+    display: block;
+    color: #435166;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 7px;
+    transition: 0.25s;
+}
+
+.nav-links a:hover {
+    color: #11977e;
+    background: #e8f8f4;
+}
+
+/* =========================
+   4. PHẦN GIỚI THIỆU
+========================= */
+.intro {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 85px 24px 55px;
+    text-align: center;
+}
+
+.intro h2,
+.section-heading h2,
+.contact-banner h2 {
+    color: #172b46;
+    font-size: clamp(27px, 4vw, 38px);
+    line-height: 1.3;
+    margin-bottom: 15px;
+}
+
+.intro p,
+.section-heading > p {
+    color: #687589;
+    font-size: 16px;
+}
+
+/* =========================
+   5. KHU VỰC DỊCH VỤ
+========================= */
+.content {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 30px 24px 90px;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* CSS Grid tạo ba cột */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 26px;
+}
+
+/* Thẻ dịch vụ */
+.card {
+    min-width: 0;
+    overflow: hidden;
+    background: white;
+    border: 1px solid #e9eef4;
+    border-radius: 14px;
+    box-shadow: 0 8px 25px rgba(24, 45, 75, 0.06);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-9px);
+    box-shadow: 0 18px 40px rgba(24, 45, 75, 0.13);
+}
+
+/* Vùng ảnh trên thẻ */
+.card-image {
+    height: 220px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Màu nền dự phòng nếu chưa có ảnh */
+.image-one {
+    background: linear-gradient(135deg, #203e70, #48b9bd);
+}
+
+.image-two {
+    background: linear-gradient(135deg, #553c9a, #c56c91);
+}
+
+.image-three {
+    background: linear-gradient(135deg, #126b68, #76c7a5);
+}
+
+.card-image img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.card:hover .card-image img {
+    transform: scale(1.08);
+}
+
+.card-number {
+    position: absolute;
+    right: 18px;
+    bottom: 12px;
+    color: white;
+    font-size: 48px;
+    font-weight: 800;
+    opacity: 0.9;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+}
+
+.card-body {
+    padding: 25px;
+}
+
+.card-category {
+    display: block;
+    margin-bottom: 10px;
+    color: #139a83;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1.2px;
+}
+
+.card h3 {
+    color: #172b46;
+    font-size: 22px;
+    margin-bottom: 12px;
+}
+
+.card p {
+    min-height: 85px;
+    color: #687589;
+    font-size: 14px;
+}
+
+.card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+    color: #11977e;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.card-link span {
+    display: inline-block;
+}
+
+/* =========================
+   6. PHẦN LIÊN HỆ
+========================= */
+.contact-banner {
+    max-width: 1192px;
+    margin: 0 auto 85px;
+    padding: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+    border-radius: 16px;
+    background: #e8f7f4;
+}
+
+.contact-banner h2 {
+    font-size: clamp(24px, 3vw, 32px);
+}
+
+.contact-banner p {
+    color: #687589;
+    max-width: 620px;
+}
+
+/* =========================
+   7. FOOTER HAI CỘT
+========================= */
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    padding: 45px max(5%, calc((100% - 1200px) / 2));
+    background: #14253d;
+    color: #d5deea;
+}
+
+.footer-logo {
+    display: inline-block;
+    color: white;
+    margin-bottom: 12px;
+}
+
+.footer-left p,
+.footer-right p {
+    font-size: 14px;
+}
+
+.footer-note {
+    margin-top: 5px;
+    color: #91a1b6;
+}
+
+.footer-right h3 {
+    margin-bottom: 12px;
+    color: white;
+    font-size: 17px;
+}
+
+.footer-right a {
+    color: #d5deea;
+    transition: color 0.25s;
+}
+
+.footer-right a:hover {
+    color: #51d9bf;
+}
+
+/* =========================
+   8. RESPONSIVE - TABLET
+========================= */
+@media (max-width: 900px) {
+    .card-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .contact-banner {
+        margin-left: 24px;
+        margin-right: 24px;
+    }
+
+    .navbar {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+}
+
+/* =========================
+   9. RESPONSIVE - ĐIỆN THOẠI
+========================= */
+@media (max-width: 600px) {
+    .header {
+        min-height: 420px;
+        padding: 100px 20px 65px;
+    }
+
+    .navbar {
+        flex-direction: column;
+        gap: 8px;
+        padding: 10px 12px;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2px;
+    }
+
+    .nav-links a {
+        padding: 7px 9px;
+        font-size: 13px;
+    }
+
+    .intro {
+        padding-top: 60px;
+    }
+
+    .content {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .card-container {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .card-image {
+        height: 220px;
+    }
+
+    .card p {
+        min-height: auto;
+    }
+
+    .contact-banner {
+        margin-left: 18px;
+        margin-right: 18px;
+        padding: 28px 22px;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .footer {
+        flex-direction: column;
+        gap: 28px;
+        padding: 35px 24px;
+    }
+}
